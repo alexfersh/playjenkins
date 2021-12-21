@@ -9,8 +9,7 @@ ARG HELM_VERSION=3.7.2
 # Install helm (latest release)
 ENV BASE_URL="https://get.helm.sh"
 ENV TAR_FILE="helm-v${HELM_VERSION}-linux-amd64.tar.gz"
-RUN apk add --update ca-certificates && \
-    apk add --update -t deps bash curl wget openssl && \
+RUN apk add --update -t deps bash curl wget openssl && \
     curl -L ${BASE_URL}/${TAR_FILE} | tar xvz && \
     mv linux-amd64/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
