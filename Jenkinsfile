@@ -19,8 +19,9 @@ pipeline {
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
-                             --destination=alexfersh/alpine-k8s:${BUILD_NUMBER}
-                             --destination=alexfersh/alpine-k8s:latest
+                             --destination=alexfersh/alpine-k8s:${BUILD_NUMBER} \
+                             --destination=alexfersh/alpine-k8s:latest \
+                             --cleanup
             '''
           }
         }
