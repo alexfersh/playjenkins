@@ -7,7 +7,8 @@ spec:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
     command:
-    - /busybox/cat
+      - ["--mtu=1300"]
+        /busybox/cat
     tty: true
     volumeMounts:
       - name: kaniko-secret
